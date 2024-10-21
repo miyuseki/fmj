@@ -1,0 +1,32 @@
+body {
+    margin: 0, auto;
+    text-align: center;
+}
+
+.header-left {  
+    float: left;
+    width: 10vw;
+    height: 5vw;
+    padding: 1vw;
+    display: inline;
+}
+
+.header-left a, .header-left b {
+    display: inline;
+}
+
+.header-right {
+    float: right;
+    width: 5vw;
+    height: 5vw;
+    padding: 1vw;
+}
+
+header img {
+    width: 100%;
+}
+
+input[search] {
+    width: 40vw;
+    outline: black;
+}
