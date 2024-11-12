@@ -4,28 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="stylesheet" href="../style/reset.css">
-    <link rel="stylesheet" href="../style/style.css"> 
+    <link rel="stylesheet" href="../style/reset.css">
+    <link rel="stylesheet" href="../style/common_style.css">
+    <link rel="stylesheet" href="../style/g1_style.css">
+
     <title>検索結果画面</title>
 </head>
 
 <body>
-<header>
-    <img src="../images/title.png" alt="FMJ">
-</header>
-<main>
-    <form action="" method="post">
-     <input type="email" name="mail_address" placeholder="メールアドレス"><br>
-     <input type="password" name="pass_word" placeholder="パスワード"><br>
-     <button>
-        ログイン
-     </button>
-    </form>
+    <header>
+        <img src="../images/title.png" alt="FMJ">
+    </header>
+    <main>
+        <form action="" method="post">
+            <input type="email" name="mail_address" placeholder="メールアドレス"><br>
+            <input type="password" name="pass_word" placeholder="パスワード"><br>
+            
+            <div class="button-container">
+                <button type="submit" class="login-button">ログイン</button>
+            </div>
+    
+            
+        </form>
 
-    <p>新規登録は<a href="">こちら</a>から</p>
+        <p class="register-link">新規登録は<a href="">こちら</a>から</p>
 
-    <p><a href="">ホームに戻る</a></p>
-</main>
+        <p class="home-link"><a href="">ホームに戻る</a></p>
+
+    </main>
 </body>
 
 </html>

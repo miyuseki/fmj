@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="../style/reset.css">
-    <link rel="stylesheet" href="../style/style.css"> -->
+     <link rel="stylesheet" href="../style/reset.css">
+    <link rel="stylesheet" href="../style/common_style.css"> 
     <title>新規登録画面</title>
 </head>
 
@@ -14,16 +14,19 @@
     <img src="../images/title.png" alt="FMJ">
 </header>
 <main>
-    <p>ログイン情報</p>
-    <form action="" method="post">
-     <input type="email" name="mail_address" placeholder="メールアドレス"><br>
-     <input type="email" name="mail_address_check" placeholder="メールアドレス（確認）"><br>
-     <input type="password" name="password" placeholder="パスワード"><br>
-     <input type="password" name="password_check" placeholder="パスワード（確認）"><br>
+   
+    <form action="sign" method="post">
+     <p>ログイン情報</p>
+     <input type="emailtwo" name="mail_address" placeholder="メールアドレス"><br>
+     <input type="emailtwo" name="mail_address_check" placeholder="メールアドレス（確認）"><br>
+     <input type="passwordtwo" name="password" placeholder="パスワード"><br>
+     <input type="passwordtwo" name="password_check" placeholder="パスワード（確認）"><br>
+    </form>
+    <form action="sign" method="post">
         <p>住所</p>
 
         <input type="name" name="name" placeholder="姓">
-        <input type="name" name="names" placeholder="名"><br>
+        <input type="name" name="name" placeholder="名"><br>
 
         <input type="name" name="name" placeholder="セイ">
         <input type="name" name="name" placeholder="メイ"><br>
@@ -34,7 +37,7 @@
         <input type="address" name="addressthree" placeholder="番地"><br>
         <input type="address" name="addressfour" placeholder="マンション部屋番号"><br>
 
-
+    </form>
 
 
 
@@ -46,7 +49,7 @@
      <button>
         登録
      </button>
-    </form>
+   
 
    
 </main>

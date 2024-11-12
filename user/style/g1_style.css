@@ -1,0 +1,76 @@
+input[type="search"] {
+    width: 20vw;
+    margin: 100px ;
+    outline: black;
+
+}
+
+input[type="email"] {
+    border-bottom: 2px solid black;
+    text-align: left; 
+    font-size: 15px;
+    margin: 20px;
+    width: 22%;  
+
+    
+    
+}
+input[type="password"] {
+    text-align: left;
+    font-size: 15px;
+    border-bottom: 2px solid black;
+    margin: 20px;
+    width: 22%;
+    
+
+    
+}
+button {
+    background-color: #33a881; 
+    color: white; 
+    padding: 15px 20px; 
+    border: none; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    font-size: 10px;
+    margin: 20px;
+    
+       
+
+}
+.button-container {
+    display: flex;
+    justify-content: flex-end; 
+    width: 28%; 
+    margin: 0 auto;
+}
+
+button:hover {
+    background-color: #1d765a; 
+}
+
+.register-link {
+    font-size: 15px; 
+    color: #333; 
+   
+    margin-top: 30px;
+}
+
+.register-link a {
+    color: #007BFF; 
+    text-decoration: none; 
+}
+
+.register-link a:hover {
+    text-decoration: underline; 
+}
+.home-link {
+    font-size: 15px; 
+    color: #333; 
+    margin-top: 100px;
+    
+
+}
+.home-link a:hover {
+    text-decoration: underline; 
+}
