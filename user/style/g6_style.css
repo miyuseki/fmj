@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 form input[type="search"] {
     background-color: #ccd2cf; 
     text-align: left;
@@ -39,3 +40,42 @@ main{
    
     font-size: 20px;
 }
+=======
+form input[type="search"] {
+    background-color: #ccd2cf; 
+    text-align: left;
+    margin: 1vw; 
+    outline: black;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    width: 25%;
+   
+}
+header img {
+    width: 20%;
+    margin: 1px;
+
+}
+.header-left {  
+    float: left;
+    text-align: left;
+    padding: 2vw;
+    width: 30%;
+   
+   
+}
+
+.header-left a, .header-left b {
+    display: inline;
+   
+}
+
+.header-right {
+    float: right;
+    text-align: right;
+    width: 19%;
+    padding: 1vw;
+    
+}
+
+>>>>>>> ed6144d86b5ed8d37f12df2bc0461474cfa59719
