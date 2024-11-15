@@ -1,0 +1,46 @@
+.app {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+ 
+header {
+    height: 10vw;
+    background-color: rgb(255, 72, 72);
+    box-sizing: border-box;
+}
+ 
+main {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+ 
+nav {
+    width: 15vw;
+    background-color: rgb(72, 93, 255);
+    box-sizing: border-box;
+    border: 2px solid rgb(0, 0, 0);
+}
+ 
+.flex-content {
+    flex-grow: 1;
+    background-color: rgb(73, 249, 57);
+    box-sizing: border-box;
+    border: 2px solid rgb(0, 0, 0);
+}
+ 
+ 
+ 
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4vw;
+}
+ 
+nav h1 {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+}

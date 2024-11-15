@@ -28,7 +28,7 @@ input[type="password"] {
     
 }
 button {
-    background-color: #33a881; 
+    background-color: #21BE78; 
     color: white; 
     padding: 15px 20px; 
     border: none; 
@@ -48,7 +48,7 @@ button {
 }
 
 button:hover {
-    background-color: #1d765a; 
+    opacity: 0.7;
 }
 
 .register-link {
