@@ -13,7 +13,7 @@ function review_user($user_id)
 
     
 
-    foreach ($sql as $row) {
+    foreach ($review_result as $row) {
         echo '<p><img src="', 'photograph_files/' . htmlspecialchars($row['photograph']), '" width=200></p>';
         echo htmlspecialchars($row['']);
         echo htmlspecialchars($row['title']), '<br>';
