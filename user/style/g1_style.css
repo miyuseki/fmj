@@ -1,3 +1,4 @@
+
 input[type="search"] {
     width: 20vw;
     margin: 100px ;
@@ -9,7 +10,8 @@ input[type="email"] {
     border-bottom: 2px solid black;
     text-align: left; 
     font-size: 15px;
-    margin: 20px;
+    margin-top: 45px;
+   margin-bottom: 10px;
     width: 22%;  
 
     
@@ -26,7 +28,7 @@ input[type="password"] {
     
 }
 button {
-    background-color: #33a881; 
+    background-color: #21BE78; 
     color: white; 
     padding: 15px 20px; 
     border: none; 
@@ -46,14 +48,14 @@ button {
 }
 
 button:hover {
-    background-color: #1d765a; 
+    opacity: 0.7;
 }
 
 .register-link {
     font-size: 15px; 
     color: #333; 
    
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .register-link a {
@@ -67,7 +69,7 @@ button:hover {
 .home-link {
     font-size: 15px; 
     color: #333; 
-    margin-top: 100px;
+    margin-top: 120px;
     
 
 }

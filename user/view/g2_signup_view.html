@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="../style/reset.css">
-    <link rel="stylesheet" href="../style/common_style.css"> 
+    <link rel="stylesheet" href="../style/common_style.css">
+    <link rel="stylesheet" href="../style/g2_style.css">
     <title>新規登録画面</title>
 </head>
 
@@ -14,45 +14,36 @@
     <img src="../images/title.png" alt="FMJ">
 </header>
 <main>
-   
-    <form action="sign" method="post">
-     <p>ログイン情報</p>
-     <input type="emailtwo" name="mail_address" placeholder="メールアドレス"><br>
-     <input type="emailtwo" name="mail_address_check" placeholder="メールアドレス（確認）"><br>
-     <input type="passwordtwo" name="password" placeholder="パスワード"><br>
-     <input type="passwordtwo" name="password_check" placeholder="パスワード（確認）"><br>
-    </form>
-    <form action="sign" method="post">
+    <form action="sign" method="post" id="signup_form">
+        <p>ログイン情報</p>
+        <input type="email" name="mail_address" id="mail_address" placeholder="メールアドレス" maxlength="255" required><br>
+        <input type="email" name="mail_address_check" id="mail_address_check" placeholder="メールアドレス（確認）" required><br>
+        <div id="email_validation" style="color: red;"></div> <!-- エラーメッセージを表示する場所 -->
+
+        <input type="password" name="password" id="password" placeholder="パスワード" maxlength="255" required><br>
+        <input type="password" name="password_check" id="password_check" placeholder="パスワード（確認）" required><br>
+        <div id="password_validation" style="color: red;"></div> <!-- エラーメッセージを表示する場所 -->
+
         <p>住所</p>
+        <input type="text" name="last_name" placeholder="姓" required>
+        <input type="text" name="first_name" placeholder="名" required><br>
 
-        <input type="name" name="name" placeholder="姓">
-        <input type="name" name="name" placeholder="名"><br>
+        <input type="text" name="last_kana" placeholder="セイ" required>
+        <input type="text" name="first_kana" placeholder="メイ" required><br>
 
-        <input type="name" name="name" placeholder="セイ">
-        <input type="name" name="name" placeholder="メイ"><br>
+        <input type="text" name="post_code" id="address" placeholder="例: 123-4567" pattern="^\d{3}-\d{4}$" required><br>
 
-        <input type="address" name="address" placeholder="郵便番号"><br>
+        <input type="text" name="address_line1" placeholder="都道府県市町村区" required><br>
+        <input type="text" name="address_line2" placeholder="番地" required><br>
+        <input type="text" name="address_line3" placeholder="マンション部屋番号"><br>
 
-        <input type="address" name="addresstwo" placeholder="都道府県市町村区"><br>
-        <input type="address" name="addressthree" placeholder="番地"><br>
-        <input type="address" name="addressfour" placeholder="マンション部屋番号"><br>
 
+        <input type="submit" value="登録">
     </form>
-
-
-
-
-
-
-
-
-     <button>
-        登録
-     </button>
-   
-
-   
 </main>
+
+<!-- 外部JavaScriptファイルを読み込む -->
+<script src="../script/input_check.js"></script>
 </body>
 
 </html>

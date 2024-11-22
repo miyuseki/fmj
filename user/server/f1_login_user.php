@@ -8,6 +8,8 @@ function login_user($mail_address, $pass)
     $stmt = $pdo->prepare('SELECT * FROM user WHERE mail_address=? AND pass=?');
     $stmt->execute([$mail_address, $pass]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    $pdo=NULL;
+
 
     if($user) {
         $_SESSION['user_id'] = $user['user_id'];

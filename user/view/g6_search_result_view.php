@@ -21,10 +21,11 @@
     </header>
     <hr>
     <form action="#" method="get">
-        <input type="search" name="query" placeholder="検索:いちご">
+        <input type="search" name="query" placeholder="🔎検索:いちご">
     </form>
     <main>
         <h1>検索結果</h1>
+
     </main>
     <footer></footer>
 </body>

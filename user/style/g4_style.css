@@ -1,49 +1,43 @@
 
+.home_link {  
+    float: left;
+    padding: 2vw;
+    width: 12%; 
+    font-size: 17px;
+}
+.home_link:hover {
+    text-decoration: underline; 
+}
 
-input[type="email"] {
+.logout_link {
+    float: right;
+    width: 12%;
+    padding: 2vw;
+    font-size: 17px;
+}
+.logout_link:hover {
+    text-decoration: underline; 
+}
+
+
+
+    input[type="emailtwo"] {
     border-bottom: 2px solid black;
     text-align: left; 
     font-size: 15px;
     margin: 15px;
-    width: 22%;  
+    width: 70%;  
 
     
     
 }
-input[type="password"] {
-    text-align: left;
-    font-size: 15px;
-    border-bottom: 2px solid black;
-    margin: 15px;
-    width: 22%;
-    
-}
+
     form[action="sign"] {
         border: 1px solid #333; 
         padding: 30px; 
         width: 30%; 
         margin: 20px auto; 
         box-shadow: 0 0 30px rgba(0, 0, 0, 0.1); 
-    }
-    
-    input[type="emailtwo"] {
-        border-bottom: 2px solid black;
-        text-align: left; 
-        font-size: 15px;
-        margin: 15px;
-        width: 70%;
-        
-      
-        
-    }
-    input[type="passwordtwo"] {
-        text-align: left;
-        font-size: 15px;
-        border-bottom: 2px solid black;
-        margin: 15px;
-        width: 70%;
-        
-        
     }
     
     
@@ -90,3 +84,4 @@ input[type="password"] {
     button:hover {
         background-color: #1d765a; 
     }
+   

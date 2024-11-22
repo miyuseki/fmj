@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/reset.css">
-    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/common_style.css">
+    <link rel="stylesheet" href="../style/g3_style.css">
     <title>メインページ</title>
 </head>
 <body>
@@ -12,18 +13,21 @@
         <div class="header-left">
             <a href="G3ホーム"><img src="../images/full_title.png" alt="FMJ"></a>  
             
-            <a href="header"><img src="../images/header.png" alt="画像"></a>
             </div>
             <div class="header-right">
        <a href="cart"><img src="../images/cart.png" alt="cart"></a> 
          </div>
     </header>
-    <hr>
+    <main>
+    <a href="header"><img src="../images/header.png" alt="画像"></a>
+    
     コンセプト<br>
     福岡の魅力である、美味しい食べものを<br>
     全国の方に知ってもらう！<br>
     検索<br>
-    <input type="name" name="name" placeholder="">
-
+    <form action="#" method="get">
+        <input type="search" name="query" placeholder="例：もつ鍋、あまおう苺　　　　　🔍">
+    </form>
+    </main>
 </body>
 </html>

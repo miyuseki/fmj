@@ -18,11 +18,50 @@
         </div>
     </header>
     <hr>
+   
+    <main>
+        <h1>レビュー</h1>
+<!-- 
+    echo '<form method="post" action="g9_buy_view.html">
+        <button type="submit">削除</button>';
 
-    <p>レビュー</p>
-    <p><a href="">削除</a></p>
 
+foreach ($review_result as $row) {
+    $id = htmlspecialchars($row['review_id']);
+    $photograph = htmlspecialchars($row['photograph']);
+    $name = htmlspecialchars($row['merchandise_name']);
+    $rating = htmlspecialchars($row['rating']);
+    $comment = htmlspecialchars($row['comment']);
+    $date = htmlspecialchars($row['date']);
 
+    // 商品情報の表示部分（HTMLを組み立て）
+    echo
+    '<input type="checkbox" name="review_id[]" value="' . $id . '">
+    <fieldset>
+            <div class="row-item1">
+                <img src="photograph_files/' . $photograph . '" width="200" alt="' . $name . '">
+            </div>
 
+            <div class="row-item2">
+                <div class="col-item1">
+                    ' . $name . '
+                </div>
+
+                <div class="col-item2">
+                    ✰ ' . $rating . '
+                    ' . $comment . '
+                </div>
+
+                <div class="col-item3">
+                    ' . $date . '
+                </div>
+            </div>
+        </fieldset>';
+}
+echo '</form>'; -->
+
+    </main>
+    <footer></footer>
 </body>
+
 </html>
