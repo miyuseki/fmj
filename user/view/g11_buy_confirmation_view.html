@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>情報変更</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .container {
+            width: 300px;
+            border: 1px solid #000;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .container h2 {
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 5px;
+            font-size: 14px;
+        }
+        .button-group {
+            text-align: right;
+        }
+        .button-group button {
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>FMJ</h1>
+
+    <!-- ログイン情報変更 -->
+    <div class="container">
+        <h2>ログイン情報変更</h2>
+        <div class="form-group">
+            <label for="current-password">現パスワード</label>
+            <input type="password" id="current-password" name="current-password">
+        </div>
+        <div class="form-group">
+            <label for="new-password">新パスワード</label>
+            <input type="password" id="new-password" name="new-password">
+        </div>
+        <div class="form-group">
+            <label for="confirm-password">新パスワード(確認)</label>
+            <input type="password" id="confirm-password" name="confirm-password">
+        </div>
+        <div class="button-group">
+            <button>変更</button>
+        </div>
+        <div class="form-group">
+            <label for="email">メールアドレス</label>
+            <input type="email" id="email" name="email">
+        </div>
+        <div class="button-group">
+            <button>変更</button>
+        </div>
+    </div>
+
+    <!-- 住所情報変更 -->
+    <div class="container">
+        <h2>住所情報変更</h2>
+        <div class="form-group">
+            <label for="last-name">姓</label>
+            <input type="text" id="last-name" name="last-name">
+            <label for="first-name">名</label>
+            <input type="text" id="first-name" name="first-name">
+        </div>
+        <div class="form-group">
+            <label for="last-name-kana">セイ</label>
+            <input type="text" id="last-name-kana" name="last-name-kana">
+            <label for="first-name-kana">メイ</label>
+            <input type="text" id="first-name-kana" name="first-name-kana">
+        </div>
+        <div class="form-group">
+            <label for="postal-code">郵便番号</label>
+            <input type="text" id="postal-code" name="postal-code">
+        </div>
+        <div class="form-group">
+            <label for="address1">都道府県 市区町村</label>
+            <input type="text" id="address1" name="address1">
+        </div>
+        <div class="form-group">
+            <label for="address2">番地</label>
+            <input type="text" id="address2" name="address2">
+        </div>
+        <div class="form-group">
+            <label for="address3">マンション 部屋番号</label>
+            <input type="text" id="address3" name="address3">
+        </div>
+        <div class="button-group">
+            <button>変更</button>
+        </div>
+    </div>
+</body>
+</html>

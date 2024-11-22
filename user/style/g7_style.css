@@ -1,0 +1,88 @@
+form input[type="search"] {
+    background-color: #ccd2cf; 
+    text-align: left;
+    margin: 1vw; 
+    outline: black;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    width: 25%;
+    margin-bottom: 400px;
+   
+}
+header img {
+    
+    width: 20%;
+    margin: 1px;
+
+}
+.header-left {  
+    float: left;
+    text-align: left;
+    padding: 2vw;
+    width: 30%;
+   
+   
+}
+
+.header-left a, .header-left b {
+    display: inline;
+   
+}
+
+.header-right {
+    float: right;
+    text-align: right;
+    width: 19%;
+    padding: 1vw;
+    
+}
+
+main{
+   
+    font-size: 25px;
+}
+.buy-link{
+
+display: flex;
+    justify-content: flex; 
+    width: 3%; 
+    margin: 0 auto;
+    text-decoration: underline; 
+
+}
+
+.cart-link{
+    display: flex;
+    justify-content: flex-end; 
+    width: 30%; 
+    margin: 0 auto;
+    margin-top: -28px;
+    text-decoration: underline; 
+
+    
+
+}
+
+.buy-link a:hover {
+    opacity: 0.7;
+}
+
+.cart-link a:hover {
+    opacity: 0.7;
+}
+.write-button{
+    display: flex;
+    justify-content: flex-end; 
+    width: 28%; 
+    margin: 0 auto;
+    text-decoration: underline; 
+
+}
+.textarea{
+    margin-top: 200px;
+    border: 1px solid rgb(6, 6, 6); 
+          
+         
+
+  
+}

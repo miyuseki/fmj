@@ -1,0 +1,51 @@
+
+header img {
+    
+    width: 20%;
+    margin: 1px;
+
+}
+.header-left {  
+    float: left;
+    text-align: left;
+    padding: 2vw;
+    width: 30%;
+   
+   
+}
+.header-left a {
+    display: inline;
+   
+}
+main{
+    margin-top: 25px;
+    font-size: 30px;
+}
+
+
+
+button {
+    
+    color: rgb(16, 1, 1); 
+    font-size: 20px;
+    text-decoration: underline; 
+    float: right;
+    margin-right: 30px;
+    margin-top: -30px;
+
+}
+button:hover {
+    opacity: 0.7;
+
+}
+
+.buy-check-link{
+    font-size: 20px;
+    margin-top: 540px;
+    text-decoration: underline; 
+
+}
+
+.buy-check-link a:hover {
+    opacity: 0.7;
+}
