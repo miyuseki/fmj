@@ -11,20 +11,24 @@
     <header>
         <img src="../images/title.png" alt="FMJ">
     </header>
+<fieldset>
     <p>商品の届け先を記入してください</p>
     <p>住所</p>
-    <input type="name" name="name" placeholder="姓">
-        <input type="name" name="names" placeholder="名"><br>
+    <input type="name" name="last_name" placeholder="姓">
+        <input type="name" name="first_name" placeholder="名"><br>
 
-        <input type="name" name="name" placeholder="セイ">
-        <input type="name" name="name" placeholder="メイ"><br>
+        <input type="name" name="last_kana" placeholder="セイ">
+        <input type="name" name="first_kana" placeholder="メイ"><br>
 
-        <input type="address" name="address" placeholder="郵便番号"><br>
-        <input type="address" name="addresstwo" placeholder="都道府県市町村区"><br>
-        <input type="address" name="addressthree" placeholder="番地"><br>
-        <input type="address" name="addressfour" placeholder="マンション部屋番号"><br>
+        <input type="address" name="zip_code" placeholder="郵便番号"><br>
+        <input type="address" name="address_line1" placeholder="都道府県市町村区"><br>
+        <input type="address" name="address_line2" placeholder="番地"><br>
+        <input type="address" name="mansion" placeholder="マンション部屋番号"><br>
+    </fieldset>
+<fieldset>
         <p>支払い方法</p>
-        
+        <input type="radio" name="pay" value="代金引換">代金引換
+    </fieldset>
         <p><a href="">確定</a></p>
 </body>
 </html>

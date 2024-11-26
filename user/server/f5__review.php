@@ -20,7 +20,7 @@ function review($user_id)
 
 function create_review($review_result){
 
-echo '<form method="post" action="g9_buy_view.html">
+echo '<form method="post" action="g5_review_view.html">
 <button type="submit">削除</button>';
 
 
