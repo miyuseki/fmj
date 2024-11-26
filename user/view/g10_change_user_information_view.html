@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/reset.css">
-    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/common_style.css">
+    <link rel="stylesheet" href="../style/g10_style.css">
+
     <title>購入確認</title>
 </head>
 <body>
@@ -14,8 +16,10 @@
         </div>
     </header>
     <hr>
-    <p>購入品</p>
-
+    <main>
+        <p>購入品</p>
+        
+    <form action="address" method="post">
     <p>住所情報</p>
     <input type="name" name="last_name" placeholder="姓">
         <input type="name" name="first_name" placeholder="名"><br>
@@ -28,7 +32,11 @@
         <input type="address" name="address_line2" placeholder="番地"><br>
         <input type="address" name="mansion" placeholder="マンション部屋番号"><br>
 
-        <p><a href="">確定</a></p>
-
+       <p>予定日</p>
+    <div class="button-container">
+        <button type="submit" class="decision">確定</button>
+    </div>
+    </form>
+    </main>
 </body>
 </html>

@@ -1,0 +1,56 @@
+
+
+   
+
+    form[action="address"] {
+        border: 1px solid #333; 
+        padding: 30px; 
+        width: 30%; 
+        margin: 20px auto; 
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.1); 
+    }
+    
+    
+    
+    input[type="name"] {
+        text-align: left;
+        font-size: 15px;
+        border-bottom: 2px solid black;
+        margin: 15px;
+        width: 28%;
+        
+        
+    }
+    
+    input[type="address"] {
+        text-align: left;
+        font-size: 15px;
+        border-bottom: 2px solid black;
+        margin: 15px;
+        width: 70%;
+        
+        
+    }
+    button {
+        background-color: #33a881; 
+        color: white; 
+        padding: 15px 20px; 
+        border: none; 
+        border-radius: 10px; 
+        cursor: pointer; 
+        font-size: 15px;
+        margin: 20px;
+        
+           
+    
+    }
+    
+    
+    button:hover {
+        background-color: #1d765a; 
+    }
+    main{
+        margin-top: 25px;
+        font-size: 20px;
+    }
+    
