@@ -1,5 +1,10 @@
 <?php
 session_start();
+// ログイン確認
+if (!isset($_SESSION['user'])) {
+    header("Location: login.php");
+    exit();
+}
 require 'f0_connect_database.php';
 
 function review($user_id)
@@ -57,4 +62,11 @@ echo
 </fieldset>';
 }
 echo '</form>';
-}
+} 
+?>
+
+    </main>
+    <footer></footer>
+</body>
+
+</html>

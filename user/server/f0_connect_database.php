@@ -2,17 +2,18 @@
 
 function connect_database()
 {
-    try{
-    $pdo=new PDO(
-            'mysql:host=mysql305.phy.lolipop.lan;
-            dbname=LAA1602705-php2024;charset=utf8',
-            'LAA1602705',
-            'Pass0221');
+    $host = 'mysql305.phy.lolipop.lan';
+    $db_name = 'LAA1602705-php2024';
+    $username = 'LAA1602705';
+    $password = 'Itou0315';
+    $conn=null;
 
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    return $pdo;
-    } catch (PDOException $e) {
-        echo 'データベース接続エラー: ' . htmlspecialchars($e->getMessage());
-        exit;
-    }
-}
+            try {
+                $conn = new PDO("mysql:host=" . $host . ";dbname=" . $db_name, $username, $password);
+                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            } catch (PDOException $exception) {
+                echo "Connection error: " . $exception->getMessage();
+            }
+        
+            return $conn;
+        }
