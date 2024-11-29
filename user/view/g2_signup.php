@@ -10,7 +10,7 @@
 
 <body>
     <h1>FMJ</h1>
-    <form id="registrationForm" action="../process/signup_user_process.php" method="post">
+    <form id="registrationForm" action="../server/signup_user_process.php" method="post">
         <fieldset>
             <h2>ログイン情報</h2>
             <input type=" email" id="email" name="email" placeholder="メールアドレス" required>
