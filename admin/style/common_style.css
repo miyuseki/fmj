@@ -4,9 +4,6 @@ body {
     font-size: 15px;
 }
 
-
-
-
 input[type="search"] {
     width: 20vw;
     margin: 100px ;
@@ -20,9 +17,7 @@ input[type="email"] {
     font-size: 15px;
     margin-top: 45px;
    margin-bottom: 10px;
-    width: 25%;  
-
-    
+    width: 25%;    
     
 }
 input[type="password"] {
@@ -32,32 +27,8 @@ input[type="password"] {
     margin: 20px;
     width: 25%;
     
-
-    
-}
-button {
-    background-color: #21BE78; 
-    color: white; 
-    padding: 15px 20px; 
-    border: none; 
-    border-radius: 10px; 
-    cursor: pointer; 
-    font-size: 10px;
-    margin: 20px;
-    
-       
-
 }
 
-.button-container {
-    margin-left: 17vw;
-}
-
-button:hover {
-    opacity: 0.7;
-}
-
- 
  header {
     background-color: rgb(71, 71, 232);
     height: 15vh;

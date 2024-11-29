@@ -1,56 +1,116 @@
+body {
+    text-align: center;
+}
 
+fieldset {
+    margin: 0 auto;
+    width: 60vw;
+    max-width: 600px;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
 
-   
+h2 {
+    font-size: 25px;
+    margin: 5px;
+    font-weight: 400;
+}
 
-    form[action="address"] {
-        border: 1px solid #333; 
-        padding: 30px; 
-        width: 30%; 
-        margin: 20px auto; 
-        box-shadow: 0 0 30px rgba(0, 0, 0, 0.1); 
-    }
-    
-    
-    
-    input[type="name"] {
-        text-align: left;
-        font-size: 15px;
-        border-bottom: 2px solid black;
-        margin: 15px;
-        width: 28%;
-        
-        
-    }
-    
-    input[type="address"] {
-        text-align: left;
-        font-size: 15px;
-        border-bottom: 2px solid black;
-        margin: 15px;
-        width: 70%;
-        
-        
-    }
-    button {
-        background-color: #33a881; 
-        color: white; 
-        padding: 15px 20px; 
-        border: none; 
-        border-radius: 10px; 
-        cursor: pointer; 
-        font-size: 15px;
-        margin: 20px;
-        
-           
-    
-    }
-    
-    
-    button:hover {
-        background-color: #1d765a; 
-    }
-    main{
-        margin-top: 25px;
-        font-size: 20px;
-    }
-    
+h3 {
+    font-size: 23px;
+    margin: 5px;
+    font-weight: 400;
+}
+
+input {
+    border: none;
+    border-bottom: 2px solid black;
+    width: 35vw;
+    max-width: 400px;
+    margin: 3vh 0;
+}
+
+.double_row input {
+    width: 15vw;
+    max-width: 180px;
+}
+
+.double_row input:nth-child(2) {
+    margin-left: 2vw;
+}
+
+input:focus {
+    outline: none;
+}
+
+button {
+    border: none;
+    border-bottom: 2px solid black;
+    background-color: white;
+    font-size: 14px;
+    width: 80px;
+    cursor: pointer;
+}
+
+.message {
+    color: green;
+    margin-top: -3vh;
+}
+
+header a:nth-child(1) {
+    float: left;
+}
+
+header a:nth-child(2) {
+    float: right;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    /* ボタン間のスペース */
+}
+
+.button {
+    margin-bottom: 3vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 15vw;
+    max-width: 175px;
+    height: 10vw;
+    background-color: #e0e0e0;
+    border: 2px solid #000;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #d0d0d0;
+}
+
+.button img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+input[type="radio"] {
+    margin-left: 5vw;
+    width: 20px;
+}
+
+fieldset:nth-of-type(2) {
+    text-align: left;
+}
+
+fieldset:nth-of-type(2) h3 {
+    text-align: center;
+}

@@ -1,51 +1,8 @@
-form input[type="search"] {
-    background-color: #ccd2cf;
-    text-align: left;
-    margin: 1vw;
-    outline: black;
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    width: 24%;
-
+footer {
+    margin: 5vh;
+    text-align: center;
 }
 
-header img {
-    width: 20%;
-    margin: 1px;
-
-}
-
-.header-left {
-    float: left;
-    text-align: left;
-    padding: 2vw;
-    max-width: 500px;
-    height: auto;
-}
-.header-left a img {
-    width: 35vw;
-}
-
-.header-left a,
-.header-left b {
-    display: inline;
-
-}
-
-.header-right {
-    float: right;
-    text-align: right;
-    width: 19%;
-    padding: 1vw;
-
-}
-
-main {
-
-    font-size: 17px;
-}
-
-main img {
-    width: 100%;
-   margin-bottom: 10px;
+footer a{
+    font-size: 20px;
 }

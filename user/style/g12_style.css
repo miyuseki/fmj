@@ -1,16 +1,17 @@
+body {
+    text-align: center;
+}
 
+h1 {
+    margin-top: 20vh;
+    font-size: 45px;
 
-main{
-       margin-top: 50px;
-        font-size: 20px;
-    }
-    .home-link{
-        font-size: 20px;
-        margin-top: 380px;
-        text-decoration: underline; 
-    
-    }
-    
-    .home-link a:hover {
-        opacity: 0.7;
-    }
+}
+
+p {
+    font-size: 18px;
+}
+
+p:nth-of-type(3) {
+    margin: 5vh;
+}

@@ -53,8 +53,7 @@ button {
 }
 
 .message {
-    color: green;
-    margin-top: -3vh;
+    color: red;
 }
 
 header a:nth-child(1) {
@@ -100,13 +99,4 @@ header a:nth-child(2) {
     width: 40px;
     height: 40px;
     margin-bottom: 10px;
-}
-
-.material-symbols-outlined {
-    font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24;
-    font-size: 5vw;
 }

@@ -1,0 +1,23 @@
+button {
+    background-color: #21BE78; 
+    color: white; 
+    padding: 15px 20px; 
+    border: none; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    font-size: 10px;
+    margin: 20px;
+    
+       
+
+}
+
+.button-container {
+    margin-left: 17vw;
+}
+
+button:hover {
+    opacity: 0.7;
+}
+
+ 

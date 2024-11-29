@@ -1,73 +1,128 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    text-align: center;
+}
 
+.item {
+    border: 1px solid #ccc;
+    padding: 10px 0;
+    width: 60vw;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.item img {
+    max-width: 100px;
+    margin-right: 10px;
+}
+
+.item-info {
+    display: flex;
+    align-items: center;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[readonly] {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.no-items {
+    color: red;
+    font-weight: bold;
+}
+
+fieldset:nth-of-type(2) {
+    text-align: left;
+}
+
+fieldset:nth-of-type(2) h3 {
+    text-align: center;
+}
+
+fieldset {
+    margin: 0 auto;
+    width: 60vw;
+    max-width: 600px;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+input {
+    border: none;
+    border-bottom: 2px solid black;
+    width: 35vw;
+    max-width: 400px;
+    margin: 3vh 0;
+}
+
+.double_row input {
+    width: 15vw;
+    max-width: 180px;
+}
+
+.double_row input:nth-child(2) {
+    margin-left: 2vw;
+}
+
+input:focus {
+    outline: none;
+}
+
+button {
+    border: none;
+    border-bottom: 2px solid black;
+    background-color: white;
+    font-size: 14px;
+    width: 80px;
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    margin: 3px;
+    margin-left: 2vw;
+    width: 20px;
+}
+
+header a {
+    color: black;
+    text-decoration: none;
+    font-size: 5vh;
+    margin-bottom: -10vh;
+    padding: 1vw;
+}
+
+header a:hover {
+    color: blue;
+}
 
 header img {
-    
-    width: 20%;
-    margin: 1px;
-
+    width: 100%;
 }
-.header-left {  
+
+header a:nth-child(1) {
     float: left;
-    text-align: left;
-    padding: 2vw;
-    width: 30%;
-   
-   
-}
-.header-left a {
-    display: inline;
-   
 }
 
-    form[action="address"] {
-        border: 1px solid #333; 
-        padding: 30px; 
-        width: 30%; 
-        margin: 20px auto; 
-        box-shadow: 0 0 30px rgba(0, 0, 0, 0.1); 
-    }
-    
-    
-    
-    input[type="name"] {
-        text-align: left;
-        font-size: 15px;
-        border-bottom: 2px solid black;
-        margin: 15px;
-        width: 28%;
-        
-        
-    }
-    
-    input[type="address"] {
-        text-align: left;
-        font-size: 15px;
-        border-bottom: 2px solid black;
-        margin: 15px;
-        width: 70%;
-        
-        
-    }
-    button {
-        background-color: #33a881; 
-        color: white; 
-        padding: 15px 20px; 
-        border: none; 
-        border-radius: 10px; 
-        cursor: pointer; 
-        font-size: 15px;
-        margin: 20px;
-        
-           
-    
-    }
-    
-    
-    button:hover {
-        background-color: #1d765a; 
-    }
-    main{
-        margin-top: 25px;
-        font-size: 20px;
-    }
-    
+header a:nth-child(2) {
+    float: right;
+}
+
+footer {
+    height: 5vh;
+}
+
+hr {
+    width: 100vw;
+}
