@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="jp">
 
@@ -6,26 +8,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/reset.css">
     <link rel="stylesheet" href="../style/style.css">
-    <title>検索結果画面</title>
+    <link rel="stylesheet" href="../style/common_style.css">
+    <link rel="stylesheet" href="../style/g6_style.css">
+
+
+    <title>管理者一覧</title>
 </head>
 
 <body>
+    
     <header>
-        <div class="header-left">
-            <a href="G3ホーム"><img src="../images/title.png" alt="タイトル画像"></a>
-            <form action="#" method="get">
-                <input type="search" name="query" placeholder="検索:いちご">
-            </form>
-        </div>
-        <div class="header-right">
-            <a href="G8カート"><img src="../images/cart.png" alt="カート画像"></a>
-        </div>
+        <span class="header-left">
+            FMJ
+        </span>
+           
     </header>
-    <hr>
+      
+
     <main>
-        <h1>検索結果</h1>
+
+        <div class="form">
+            <nav>
+                <div class="user">
+                <p>ユーザー管理</p>
+            </div>
+            <hr>
+                <p class="item-link"><a href="">商品一覧</a></p>
+                <hr>
+                <p class="admin-link"><a href="">管理者登録</a></p>
+                <hr>
+                <p class="logout-link"><a href="">ログアウト</a></p>
+        
+                   
+        
+            </nav>
+            <div class="forms">
+               <input type="search" name="search" placeholder="名前検索">
+               <button>
+                商品登録
+               </button>
+               <button>
+                削除
+            </button> 
+            </div>
+        </form>
+    </div>
+
+
     </main>
-    <footer></footer>
+
 </body>
 
 </html>
+

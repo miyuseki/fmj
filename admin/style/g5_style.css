@@ -1,0 +1,36 @@
+
+input[type="search"] {
+    width: 20vw;
+    margin: 100px ;
+    text-align: left;
+    border: 1px solid black;
+    margin-top: -100px;
+    background-color: #ffffff;
+    margin-right: 450px;
+
+}
+
+button{
+    margin-top: -195px;
+    font-size: 17px; 
+    color: #333; 
+    text-decoration: underline; 
+    margin-right: 30px;
+    
+
+}
+.button a:hover {
+    opacity: 0.7;
+
+
+}
+nav {
+    flex: 1;
+    height: 100vh;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    border: 1px solid rgb(0, 0, 0);
+}
+main{
+     background-color: rgb(224, 225, 236);
+}
