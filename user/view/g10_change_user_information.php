@@ -2,6 +2,12 @@
 session_start();
 require_once '../server/f0_connect_database.php';
 
+// ログイン確認
+if (!isset($_SESSION['user'])) {
+    header("Location: g1_login.php");
+    exit();
+}
+
 $user_id = $_SESSION['user'];
 
 try {

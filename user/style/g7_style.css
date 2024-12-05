@@ -106,6 +106,11 @@ textarea {
     margin-left: 15vw;
     width: 72vw;
     height: 25vh;
+    text-align: left;
+}
+
+.review-content {
+    text-align: left;
 }
 
 .review:nth-of-type(1) {
@@ -131,21 +136,26 @@ textarea {
     font-size: 18px;
 }
 
-.stars {
+.stars,
+.stars-fixed {
     display: flex;
+    margin-left: 14.5vw;
 }
 
-.stars span {
+.stars span,
+.stars-fixed span {
     display: flex;
     flex-direction: row-reverse;
     justify-content: flex-end;
 }
 
-.stars input[type='radio'] {
+.stars input[type='radio'],
+.stars-fixed input[type='radio'] {
     display: none;
 }
 
-.stars label {
+.stars label,
+.stars-fixed label {
     color: #D2D2D2;
     font-size: 30px;
     padding: 0 5px;
@@ -154,6 +164,7 @@ textarea {
 
 .stars label:hover,
 .stars label:hover~label,
-.stars input[type='radio']:checked~label {
+.stars input[type='radio']:checked~label,
+.stars-fixed     input[type='radio']:checked~label {
     color: #F8C601;
 }

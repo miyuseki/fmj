@@ -23,15 +23,15 @@
     <header>
         <a href="g4_mypage.php">マイページ</a>
         <a href="g8_cart.php">🛒</a>
-        <img src="../images/images/full_title.png" alt="ページのタイトル">
-        <img src="../images/images/header.png" alt="ヘッダー画像">
+        <img src="../images/full_title.png" alt="ページのタイトル">
+        <img src="../images/header.png" alt="ヘッダー画像">
     </header>
 
     <main>
         <h1>コンセプト</h1>
         <p>福岡の魅力である、おいしい食べ物を<br>全国の方に知ってもらう！！</p>
 
-        <form action="g7_product_introduction.php" method="get">
+        <form action="g6_search_result.php" method="get">
             <div class="container">
                 <h2>検索</h2>
                 <input type="search" name="search" placeholder="例　いちご">
@@ -42,13 +42,13 @@
             <div id="category_form">
                 <h2>カテゴリー別</h2>
                 <div id="category">
-                    <button type="submit" name="category" value="直送"><img src="../images/images/direct_button.png"
+                    <button type="submit" name="category" value="直送"><img src="../images/direct_button.png"
                             alt="直送"></button>
-                    <button type="submit" name="category" value="名物"><img src="../images/images/specialty_button.png"
+                    <button type="submit" name="category" value="名物"><img src="../images/specialty_button.png"
                             alt="名物"></button>
-                    <button type="submit" name="category" value="その他"><img src="../images/images/other_button.png"
+                    <button type="submit" name="category" value="その他"><img src="../images/other_button.png"
                             alt="その他"></button>
-                    <button type="submit" name="category" value="旬物"><img src="../images/images/seasonal_items.png"
+                    <button type="submit" name="category" value="旬物"><img src="../images/seasonal_items.png"
                             alt="旬物"></button>
                 </div>
             </div>

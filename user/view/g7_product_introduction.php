@@ -10,8 +10,9 @@ try {
 }
 
 $merchandise = null;
+$reviews = null;
 
-// 商品情報の取得（GETリクエスト）
+// 商品情報とレビューの取得（GETリクエスト）
 if ($_SERVER["REQUEST_METHOD"] === "GET" && !empty($_GET['merchandise_id'])) {
     $sql = $pdo->prepare('SELECT * FROM merchandise WHERE merchandise_id = ?');
     $sql->execute([$_GET['merchandise_id']]);
@@ -21,6 +22,10 @@ if ($_SERVER["REQUEST_METHOD"] === "GET" && !empty($_GET['merchandise_id'])) {
         echo '商品が見つかりませんでした。';
         exit;
     }
+    // ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    $sql = $pdo->prepare('SELECT * FROM review WHERE merchandise_id = ?');
+    $sql->execute([$_GET['merchandise_id']]);
+    $reviews = $sql->fetchAll(PDO::FETCH_ASSOC);
 }
 
 // カートに追加（POSTリクエスト）
@@ -60,7 +65,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // 処理完了後、カートページにリダイレクト
         header("Location: $link");
         exit();
-
     } else {
         header("Location: login.php");
         exit();
@@ -69,13 +73,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 ?>
 <!DOCTYPE html>
 <html lang="jp">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../style/g7_style.css">
 
     <title>商品詳細</title>
 </head>
+
 <body>
     <header class="header_button">
         <a href="g3_home.php"><img src="../images/title.png" alt="FMJ"></a>
@@ -116,42 +123,50 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <div class="reviews">
             <div class="review">
                 <h2>レビュー</h2>
-                <div class="stars">
-                    <span>
-                        <input id="review01" type="radio" name="review1" disabled checked><label for="review01">★</label>
-                        <input id="review02" type="radio" name="review1" disabled><label for="review02">★</label>
-                        <input id="review03" type="radio" name="review1" disabled><label for="review03">★</label>
-                        <input id="review04" type="radio" name="review1" disabled><label for="review04">★</label>
-                        <input id="review05" type="radio" name="review1" disabled><label for="review05">★</label>
-                    </span>
-                </div>
             </div>
 
-            <fieldset>
-                <div class="review-content">
-                    <p>この商品はとても良かったです！</p>
+            <?php foreach ($reviews as $review): ?>
+                <div class="stars-fixed">
+                    <span>
+                        <input id="review01" type="radio" name="review1" disabled <?php if ($review['rating'] == 5) echo 'checked'; ?>><label for="review01">★</label>
+                        <input id="review02" type="radio" name="review1" disabled <?php if ($review['rating'] == 4) echo 'checked'; ?>><label for="review02">★</label>
+                        <input id="review03" type="radio" name="review1" disabled <?php if ($review['rating'] == 3) echo 'checked'; ?>><label for="review03">★</label>
+                        <input id="review04" type="radio" name="review1" disabled <?php if ($review['rating'] == 2) echo 'checked'; ?>><label for="review04">★</label>
+                        <input id="review05" type="radio" name="review1" disabled <?php if ($review['rating'] == 1) echo 'checked'; ?>><label for="review05">★</label>
+                    </span>
                 </div>
-            </fieldset>
+                <fieldset>
+                    <div class="review-content">
+                        <p><?= htmlspecialchars($review['comment']) ?></p>
+                    </div>
+                </fieldset>
+            <?php endforeach; ?>
 
             <div class="review">
                 <h2>レビューを書く</h2>
-                <div class="stars">
-                    <span>
-                        <input id="review06" type="radio" name="review"><label for="review06">★</label>
-                        <input id="review07" type="radio" name="review"><label for="review07">★</label>
-                        <input id="review08" type="radio" name="review"><label for="review08">★</label>
-                        <input id="review09" type="radio" name="review"><label for="review09">★</label>
-                        <input id="review10" type="radio" name="review"><label for="review10">★</label>
-                    </span>
-                </div>
             </div>
 
             <!-- レビュー内容を書くフォーム -->
             <div class="write-review">
-                <form action="#" method="post">
+                <form action="../server/post_review.php" method="post">
+                    <div class="stars">
+                        <span>
+                            <input id="review06" type="radio" name="review" value="5"><label for="review06">★</label>
+                            <input id="review07" type="radio" name="review" value="4"><label for="review07">★</label>
+                            <input id="review08" type="radio" name="review" value="3"><label for="review08">★</label>
+                            <input id="review09" type="radio" name="review" value="2"><label for="review09">★</label>
+                            <input id="review10" type="radio" name="review" value="1"><label for="review10">★</label>
+                        </span>
+                    </div>
                     <input type="hidden" name="merchandise_id" value="<?= htmlspecialchars($merchandise['merchandise_id']) ?>">
-                    <textarea name="review"></textarea>
-                    <input type="submit" value="投稿" disabled>
+                    <textarea name="comment"></textarea>
+                    <?php
+                    if (!isset($_SESSION['user'])) {
+                        echo '<input type="submit" value="投稿">';
+                    } else {
+                        echo '<input type="submit" value="投稿" disable>';
+                    }
+                    ?>
                 </form>
             </div>
         </div>
