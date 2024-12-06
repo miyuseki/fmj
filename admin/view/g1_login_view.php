@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($admin) {
         session_start();
         $_SESSION['admin_logged_in'] = true;
-        header("Location: admin_home.php");
+        header("Location: g3_user_list_view.php");
         exit;
     } else {
         echo "Invalid username or password.";
