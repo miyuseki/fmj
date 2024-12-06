@@ -1,21 +1,21 @@
 <?php
 session_start();
-
-$admin_credentials = [
-    "2301009@s.asojuku.ac.jp" => "Pass1024" 
-];
-
+require_once '../server/connect_database.php';
+$pdo = connect_database();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['mail_address'] ?? '';
-    $password = $_POST['pass_word'] ?? '';
-
-    if (isset($admin_credentials[$email]) && $admin_credentials[$email] === $password) {
+    $admin_username = $_POST['username'] ?? '';
+    $admin_password = $_POST['password'] ?? '';
+    $stmt = $pdo->prepare("SELECT * FROM management WHERE management_id = ? AND management_pass = ?");
+    $stmt->execute([$admin_username, $admin_password]);
+    $admin = $stmt->fetch();
+    if ($admin) {
+        session_start();
         $_SESSION['admin_logged_in'] = true;
-        header("Location: g2_sign_up_view.php");
-        exit();
+        header("Location: admin_home.php");
+        exit;
     } else {
-        $error_message = "IDまたはパスワードが間違っています。";
+        echo "Invalid username or password.";
     }
 }
 ?>
@@ -44,8 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <p style="color: red;"><?= htmlspecialchars($error_message) ?></p>
             <?php endif; ?>
             <form action="" method="post">
-                <input type="email" name="mail_address" placeholder="ID" required><br>
-                <input type="password" name="pass_word" placeholder="パスワード" required><br>
+                <input type="text" name="username" placeholder="ID" required><br>
+                <input type="password" name="password" placeholder="パスワード" required><br>
                 <div class="button-container">
                     <button type="submit" class="login-button">ログイン</button>
                 </div>
@@ -55,4 +55,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </body>
 
 </html>
-

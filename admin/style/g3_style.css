@@ -1,21 +1,162 @@
-input[type="search"] {
-    width: 20vw;
-    margin: 100px ;
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #EFF0F4;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    background-color: blue;
+    display: flex;
+    justify-content: start;
+    padding: 10px;
+    text-align: center;
+    font-size: 24px;
+}
+
+header img {
+    margin-left: 3vw;
+    height: 10vh;
+}
+
+header h1 {
+    margin: 0;
+    color: black;
+    overflow-wrap: initial;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow:
+        2px 2px 0 #F61C29,
+        -2px 2px 0 #F61C29,
+        2px -2px 0 #F61C29,
+        -2px -2px 0 #F61C29,
+        2px 0px 0 #F61C29,
+        -2px 0px 0 #F61C29,
+        0px 2px 0 #F61C29;
+}
+
+main {
+    display: flex;
+    flex: 1;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #F5F5F5;
+    color: black;
+    border: none;
+    text-align: center;
+}
+
+.sidebar ul {
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    border: none;
+    border-bottom: solid 2px #4E5D69;
+    font-weight: bold;
+    font-size: 3vh;
+    overflow-wrap: initial;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar ul li:first {
+    border-top: none
+}
+
+.sidebar ul li a {
+    color: #4E5D69;
+    text-decoration: none;
+    display: block;
+    padding: 8px;
+}
+
+.sidebar ul li a:hover {
+    background-color: grey;
+    color: #2c3e50;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #ecf0f1;
+}
+
+h2 {
+    color: #4E5D69;
+}
+
+input[type='search'] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin: 5vh 0;
+    width: 30vw;
+}
+
+input[type='search']:hover {
+    background-color: rgb(230, 230, 230);
+}
+
+.delete-button,
+.edit-button {
+    background-color: none;
+    color: black;
+    text-decoration: underline solid black;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    border-radius: 3px;
+}
+
+.delete-button:hover,
+.edit-button:hover {
+    color: #2b67c0;
+}
+
+table {
+    width: 100%;
+    height: 60vh;
+    border-collapse: collapse;
+    background: white;
+}
+
+table thead {
+    background-color: #8a8a8a;
+    color: white;
+}
+
+table th,
+table td {
     text-align: left;
-    border: 1px solid black;
-    margin-top: -100px;
-
+    padding: 8px;
+    border: 1px solid #ddd;
 }
 
-button{
-    margin-top: -195px;
-    font-size: 17px; 
-    color: #333; 
-    text-decoration: underline; 
-
+.logout-button {
+    display: block;
+    margin-top: 58vh;
+    margin-right: 6vw;
 }
-.button a:hover {
-    opacity: 0.7;
 
+.active {
+    background-color: #b7b7b7;
+}
 
+.button-group {
+    margin-top: -10vh;
+    padding-left: 70vw;
+    background-color: #EFF0F4;
 }

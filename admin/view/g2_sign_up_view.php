@@ -1,110 +1,91 @@
 <?php
 session_start();
-
 if (!isset($_SESSION['admin_logged_in'])) {
     header("Location: g1_login_view.php");
     exit();
 }
 
+require_once '../server/connect_database.php';
+$pdo = connect_database();
+$success_message = '';
+$error_message = '';
 
-if (isset($_GET['logout'])) {
-    session_destroy();
-    header("Location: g1_login_view.php");
-    exit();
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $id = $_POST['ID'];
+    $password = $_POST['password'];
+    $password_check = $_POST['password_check'];
+
+    try {
+        // パスワード再確認チェック
+        if ($password !== $password_check) {
+            $error_message = "パスワードが一致しません。再確認してください。";
+        } else {
+            // IDの重複チェック
+            $stmt = $pdo->prepare("SELECT * FROM management WHERE management_id = ?");
+            $stmt->execute([$id]);
+            $admin = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($admin) {
+                $error_message = "このIDは既に登録されています。";
+            } else {
+                // 新規ユーザー登録
+                $stmt = $pdo->prepare("INSERT INTO management (management_id, management_pass) VALUES (?, ?)");
+                $stmt->execute([$id, $password]);
+
+                $success_message = "登録成功しました。";
+            }
+        }
+    } catch (Exception $e) {
+        $error_message = "登録中にエラーが発生しました: " . htmlspecialchars($e->getMessage());
+    }
 }
 ?>
+
 <!DOCTYPE html>
-<html lang="jp">
+<html lang="ja">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/reset.css">
-    <link rel="stylesheet" href="../style/common_style.css">
-
-    <title>管理者ダッシュボード</title>
+    <title>ユーザー管理</title>
+    <link rel="stylesheet" href="../style/g2_style.css">
 </head>
 
 <body>
-    <header>
-        <span class="header-left">FMJ</span>
-        <span class="header-right">
-            <a href="?logout" style="text-decoration: none; color: #000;">ログアウト</a>
-        </span>
-    </header>
-
-    <main>
-        <div class="container">
+    <div class="container">
+        <header>
+            <h1>FMJ</h1>
+        </header>
+        <main>
             <nav class="sidebar">
-                <h3>管理メニュー</h3>
                 <ul>
-                    <li><a href="manage_users.php">ユーザー管理</a></li>
-                    admin/view/g3_user_list_view.php
-                    <li><a href="manage_products.php">商品管理</a></li>
-                    <li><a href="admin_register.php">管理者登録</a></li>
-                    <li><a href="?logout">ログアウト</a></li>
+                    <li><a href="g3_user_list_view.php">ユーザー管理</a></li>
+                    <li><a href="g4_item_list_view">商品一覧</a></li>
+                    <li><a href="#" class="active">管理者登録</a></li>
                 </ul>
+                <a href="../server/logout.php" class="logout-button">ログアウト</a>
             </nav>
+            <section class="content">
+                <!-- 登録フォーム -->
+                <form action="#" method="post">
+                    <label for="ID">ID</label><br>
+                    <input type="text" name="ID" id="ID" required><br>
 
-            <div class="main-content">
-                <h1>管理者ダッシュボード</h1>
-                <p>操作を選択してください。</p>
-            </div>
-        </div>
-    </main>
+                    <label for="password">パスワード</label><br>
+                    <input type="password" name="password" id="password" required><br>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
+                    <label for="password_check">パスワードの再確認</label><br>
+                    <input type="password" name="password_check" id="password_check" required><br>
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #f4f4f4;
-            border-bottom: 1px solid #ddd;
-        }
+                    <button type="submit">登録</button><br>
 
-        .container {
-            display: flex;
-        }
-
-        .sidebar {
-            width: 20%;
-            background-color: #f9f9f9;
-            border-right: 1px solid #ddd;
-            padding: 15px;
-        }
-
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .sidebar ul li {
-            margin-bottom: 10px;
-        }
-
-        .sidebar ul li a {
-            text-decoration: none;
-            color: #333;
-        }
-
-        .sidebar ul li a:hover {
-            text-decoration: underline;
-        }
-
-        .main-content {
-            width: 80%;
-            padding: 20px;
-        }
-
-        .main-content h1 {
-            margin-top: 0;
-        }
-    </style>
+                    <!-- メッセージの表示 -->
+                    <span style="color: #4fec30; font-weight:bold"><?= $success_message ?></span>
+                    <span style="color: red; font-weight:bold"><?= $error_message ?></span>
+                </form>
+            </section>
+        </main>
+    </div>
 </body>
 
 </html>

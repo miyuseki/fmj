@@ -14,7 +14,7 @@ input[type="search"] {
 
 }
 
-input[type="email"] {
+input[type="text"] {
     border-bottom: 2px solid black;
     text-align: left; 
     font-size: 15px;
