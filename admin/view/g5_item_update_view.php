@@ -109,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                </div>
                <div class="form-group">
                   <label for="explanation">説明:</label>
-                  <textarea id="explanation" name="explanation" required value="<?= htmlspecialchars($merchandise['explanation']) ?>"></textarea>
+                  <textarea id="explanation" name="explanation" required ><?= htmlspecialchars($merchandise['explanation']) ?></textarea>
                </div>
                <div class="form-group">
                   <label for="category">カテゴリー:</label>
