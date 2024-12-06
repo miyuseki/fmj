@@ -1,17 +1,15 @@
 <?php
-session_start();
-
-if (!isset($_SESSION['admin_logged_in'])) {
-    header("Location: g1_login_view.php");
-    exit();
-}
-
-
-if (isset($_GET['logout'])) {
-    session_destroy();
-    header("Location: g1_login_view.php");
-    exit();
-}
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $new_username = $_POST['username'] ?? '';
+    $new_password = $_POST['password'] ?? '';
+    $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
+    $stmt = $pdo->prepare("INSERT INTO admins (username, password) VALUES (?, ?)");
+    if ($stmt->execute([$new_username, $hashed_password])) {
+        echo "Admin registered successfully.";
+    } else {
+        echo "Registration failed.";
+    }
+ }
 ?>
 <!DOCTYPE html>
 <html lang="jp">

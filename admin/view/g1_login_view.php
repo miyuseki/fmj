@@ -1,23 +1,19 @@
 <?php
-session_start();
-
-$admin_credentials = [
-    "2301009@s.asojuku.ac.jp" => "Pass1024" 
-];
-
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['mail_address'] ?? '';
-    $password = $_POST['pass_word'] ?? '';
-
-    if (isset($admin_credentials[$email]) && $admin_credentials[$email] === $password) {
+    $admin_username = $_POST['username'] ?? '';
+    $admin_password = $_POST['password'] ?? '';
+    $stmt = $pdo->prepare("SELECT * FROM admins WHERE username = ?");
+    $stmt->execute([$admin_username]);
+    $admin = $stmt->fetch();
+    if ($admin && password_verify($admin_password, $admin['password'])) {
+        session_start();
         $_SESSION['admin_logged_in'] = true;
-        header("Location: g2_sign_up_view.php");
-        exit();
+        header("Location: admin_home.php");
+        exit;
     } else {
-        $error_message = "IDまたはパスワードが間違っています。";
+        echo "Invalid username or password.";
     }
-}
+ }
 ?>
 <!DOCTYPE html>
 <html lang="jp">

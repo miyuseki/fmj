@@ -1,89 +1,151 @@
 <?php
 
-session_start();
+$dsn = 'mysql:host=mysql305.phy.lolipop.lan;dbname=LAA1602705-php2024;charset=utf8';
 
+$username = 'LAA1602705';
 
-if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
-    header('Location:g1_login_view.php'); 
-    exit();
-}
+$password = 'Itou0315';
+
+$message = '';
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
-    $name = trim($_POST['name']);
-    $description = trim($_POST['description']);
-    $price = trim($_POST['price']);
-    $image = '';
 
-    
-    if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-        $image_tmp = $_FILES['image']['tmp_name'];
-        $image_name = basename($_FILES['image']['name']);
-        $image_path = '../uploads/' . $image_name;
+    $name = $_POST['name'];
 
-        move_uploaded_file($image_tmp, $image_path);
-        $image = $image_path;
-    }
+    $price = $_POST['price'];
+
+    $description = $_POST['description'];
 
     try {
-        $pdo = new PDO('mysql:host=mysql305.phy.lolipop.lan;dbname=LAA1602705-php2024', 'LAA1602705', 'Itou0315');
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $stmt = $pdo->prepare("INSERT INTO products (name, description, price, image) VALUES (?, ?, ?, ?)");
-        $stmt->execute([$name, $description, $price, $image]);
 
-        
-        $message = '商品が正常に登録されました。';
+        $pdo = new PDO($dsn, $username, $password);
+
+        $stmt = $pdo->prepare("INSERT INTO items (name, price, description) VALUES (:name, :price, :description)");
+
+        $stmt->execute([
+
+            ':name' => $name,
+
+            ':price' => $price,
+
+            ':description' => $description,
+
+        ]);
+
+        $message = "商品を登録しました。";
+
     } catch (PDOException $e) {
-        $message = 'データベース接続エラー: ' . $e->getMessage();
-    }
-}
-?>
 
+        echo "エラー: " . $e->getMessage();
+
+    }
+
+}
+
+?>
 <!DOCTYPE html>
-<html lang="jp">
+<html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/reset.css">
-    <link rel="stylesheet" href="../style/style.css">
-    <title>商品登録</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>アイテム登録</title>
+<style>
+
+      body {
+
+         font-family: Arial, sans-serif;
+
+      }
+
+      .container {
+
+         width: 80%;
+
+         margin: auto;
+
+      }
+
+      .form-group {
+
+         margin-bottom: 1em;
+
+      }
+
+      label {
+
+         display: block;
+
+         margin-bottom: 0.5em;
+
+      }
+
+      input, textarea, select {
+
+         width: 100%;
+
+         padding: 0.5em;
+
+         border: 1px solid #ccc;
+
+         border-radius: 4px;
+
+      }
+
+      .btn {
+
+         padding: 0.5em 1em;
+
+         background-color: #007BFF;
+
+         color: white;
+
+         border: none;
+
+         border-radius: 4px;
+
+         cursor: pointer;
+
+      }
+
+      .btn:hover {
+
+         background-color: #0056b3;
+
+      }
+</style>
 </head>
 <body>
-    <header>
-        <div class="header-left">
-            <a href="G3ホーム"><img src="../images/title.png" alt="タイトル画像"></a>
-        </div>
-        <div class="header-right">
-            <a href="G8カート"><img src="../images/cart.png" alt="カート画像"></a>
-        </div>
-    </header>
-    <hr>
-    <main>
-        <h1>商品登録</h1>
-
-        <?php if (isset($message)) { echo "<p>$message</p>"; } ?>
-
-        <form action="g6_item_register_view.php" method="POST" enctype="multipart/form-data">
-            <div>
-                <label for="name">商品名:</label>
-                <input type="text" name="name" id="name" required>
-            </div>
-            <div>
-                <label for="description">商品説明:</label>
-                <textarea name="description" id="description"></textarea>
-            </div>
-            <div>
-                <label for="price">価格:</label>
-                <input type="number" name="price" id="price" required>
-            </div>
-            <div>
-                <label for="image">商品画像:</label>
-                <input type="file" name="image" id="image" required>
-            </div>
-            <button type="submit">登録</button>
-        </form>
-    </main>
-    <footer></footer>
+<div class="container">
+<h1>新しいアイテムを登録</h1>
+<form method="POST" enctype="multipart/form-data">
+<div class="form-group">
+<label for="name">アイテム名:</label>
+<input type="text" id="name" name="name" required>
+</div>
+<div class="form-group">
+<label for="price">価格:</label>
+<input type="number" id="price" name="price" required>
+</div>
+<div class="form-group">
+<label for="description">説明:</label>
+<textarea id="description" name="description" required></textarea>
+</div>
+<div class="form-group">
+<label for="category">カテゴリー:</label>
+<select id="category" name="category" required>
+<option value="direct">直接</option>
+<option value="food">食品</option>
+<option value="goods">商品</option>
+<option value="other">その他</option>
+</select>
+</div>
+<div class="form-group">
+<label for="stock">在庫:</label>
+<input type="number" id="stock" name="stock" required>
+</div>
+<button type="submit" class="btn">登録</button>
+</form>
+</div>
 </body>
-</html>
+</html>'; 
