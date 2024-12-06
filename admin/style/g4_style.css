@@ -17,13 +17,14 @@ button{
     text-decoration: underline; 
     margin-right: 30px;
     
-
 }
+
 .button a:hover {
     opacity: 0.7;
 
 
 }
+
 nav {
     flex: 1;
     height: 100vh;
@@ -31,6 +32,7 @@ nav {
     box-sizing: border-box;
     border: 1px solid rgb(0, 0, 0);
 }
+
 main{
      background-color: rgb(224, 225, 236);
 }

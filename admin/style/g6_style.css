@@ -1,0 +1,71 @@
+
+input[type="search"] {
+    width: 20vw;
+    margin: 100px ;
+    text-align: left;
+    border: 1px solid black;
+    margin-top: -100px;
+    background-color: #ffffff;
+    margin-right: 450px;
+
+}
+
+button{
+    margin-top: -195px;
+    font-size: 17px; 
+    color: #333; 
+    text-decoration: underline; 
+    margin-right: 30px;
+    
+
+}
+.button a:hover {
+    opacity: 0.7;
+
+
+}
+nav {
+    flex: 1;
+    height: 100vh;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    border: 1px solid rgb(0, 0, 0);
+}
+main{
+     background-color: rgb(224, 225, 236);
+}
+textarea{
+    border: 1px solid black;
+
+
+}
+input[type="text"]{
+    border: 1px solid black;
+
+}
+input[type="file"]{
+    margin-left: -100vh;
+    margin-bottom: -10vh;
+}
+textarea[name="item_name"]{
+    margin-right: -80vh;
+   
+}
+textarea[name="item_explain"]{
+  margin-left: -85vh;
+   
+}
+input[type="text"]{
+    margin-left: 60vh;
+}
+.browser_back{
+    margin-left: -150vh;
+    margin-top: 15vh;
+}
+.button-container{
+    margin-top: 14vh;
+}
+form{
+   
+    margin-left: 35vh;
+}
