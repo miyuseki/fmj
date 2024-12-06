@@ -45,77 +45,9 @@ if (isset($_SESSION['user'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/g5_style.css">
+    <link rel="stylesheet" href="../style/g13_style.css">
+
     <title>レビュー一覧</title>
-    <style>
-        h1 {
-            text-align: center;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        .review-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .review-item {
-            display: flex;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: #fafafa;
-        }
-
-        .review-item img {
-            max-width: 200px;
-            height: auto;
-            margin-right: 20px;
-            border-radius: 8px;
-        }
-
-        .review-item .details {
-            flex-grow: 1;
-        }
-
-        .review-item h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        .review-item p {
-            font-size: 14px;
-            color: #555;
-        }
-
-        .review-item .rating {
-            font-weight: bold;
-            color: #ff9900;
-        }
-
-        .review-item .date {
-            font-size: 12px;
-            color: #888;
-        }
-
-        .review-item .checkbox {
-            margin-top: 10px;
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #747474;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #525252;
-        }
-    </style>
 </head>
 
 <body>

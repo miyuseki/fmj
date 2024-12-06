@@ -74,8 +74,17 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
                     echo '<h1>検索結果なし</h1>';
                 } else {
                     echo '<div class="product-container">';
-                    foreach ($results as $row):
-            ?>
+                    foreach ($results as $row): ?>
+                        <?php
+                        $exist = false;
+                        if (isset($_SESSION['user'])) {
+                            $sql = $pdo->prepare('SELECT * FROM wishlist WHERE user_id = ? AND merchandise_id = ?');
+                            $sql->execute([$_SESSION['user'], $row['merchandise_id']]);
+                            $exist = $sql->fetch(PDO::FETCH_ASSOC);
+                        }
+
+                        ?>
+
                         <div class="product-item">
                             <form action="g7_product_introduction.php" method="get">
                                 <input type="hidden" name="merchandise_id" value="<?= htmlspecialchars($row['merchandise_id']) ?>">
@@ -85,7 +94,9 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
                                 <input type="submit" value="購入">
                             </form>
                             <form action="#" method="post">
-                                <?php if (isset($_SESSION['user'])): ?>
+                                <?php if (isset($_SESSION['user']) && $exist): ?>
+                                    <button class="wish-button" type="submit" name="merchandise_id" value="<?= htmlspecialchars($row['merchandise_id']) ?>">♥</button>
+                                <?php elseif (isset($_SESSION['user'])): ?>
                                     <button class="wish-button" type="submit" name="merchandise_id" value="<?= htmlspecialchars($row['merchandise_id']) ?>">♡</button>
                                 <?php else: ?>
                                     <button class="wish-button" type="button" disabled>♡</button>
