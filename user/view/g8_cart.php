@@ -60,57 +60,10 @@ $cart_items = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/g8_style.css"> 
+
     <title>FMJ - カート</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #ccc;
-            padding: 10px 0;
-        }
-
-        .cart-item img {
-            max-width: 100px;
-            border-radius: 5px;
-        }
-
-        .cart-item-info {
-            flex: 1;
-            margin-left: 10px;
-        }
-
-        .cart-item-actions {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-        }
-
-        .cart-item-actions form {
-            margin-top: 5px;
-        }
-
-        input[type="number"] {
-            width: 50px;
-        }
-
-        input[type="submit"] {
-            padding: 5px 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-    </style>
+   
 </head>
 
 <body>
@@ -144,7 +97,7 @@ $cart_items = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </div>
             </div>
         <?php endforeach; ?>
-        <form action="buy.php" method="post">
+        <form action="g9_buy.php" method="post">
             <?php foreach ($cart_items as $item): ?>
                 <input type="hidden" name="merchandise_ids[]" value="<?= htmlspecialchars($item['merchandise_id']) ?>">
             <?php endforeach; ?>

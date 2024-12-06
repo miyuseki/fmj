@@ -55,7 +55,7 @@ if (isset($_SESSION['user'])) {
         </p>
     <?php endif; ?>
 
-    <form action="g10_change_user_information.php.php" method="post">
+    <form action="g10_change_user_information.php" method="post">
         <fieldset>
             <h3>商品の届け先を記入してください</h3>
             <h3>住所情報</h3>

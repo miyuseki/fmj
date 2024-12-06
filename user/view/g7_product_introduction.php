@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $insert_stmt->execute([$user_id, $merchandise_id, $quantity]);
         }
 
-        $link = "detail.php?merchandise_id=$merchandise_id";
+        $link = "g8_cart.php?merchandise_id=$merchandise_id";
 
         // 処理完了後、カートページにリダイレクト
         header("Location: $link");
