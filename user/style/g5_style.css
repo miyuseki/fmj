@@ -1,48 +1,14 @@
-
-   
-
-header img {
-    width: 20%;
-    margin: 1px;
-
+.message {
+    color: green;
+    margin-top: -3vh;
 }
-.header-left {  
+
+header a:nth-child(1) {
     float: left;
-    text-align: left;
-    padding: 2vw;
-    width: 30%;
-    
-   
-   
 }
 
-.header-left a, .header-left b {
-    display: inline;
-   
-}
-
-.header-right {
+header a:nth-child(2) {
     float: right;
-    text-align: right;
-    width: 19%;
-    padding: 1vw;
-    
 }
-button {
-    
-    color: rgb(16, 1, 1); 
-    font-size: 15px;
-    
-    float: right;
-    margin-right: 30px;
-    margin-top: -20px;
 
-}
-button:hover {
-    text-decoration: underline; 
-}
-main{
-    margin-top: 20px;
-    font-size: 20px;
-}
 

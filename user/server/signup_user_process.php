@@ -1,5 +1,5 @@
 <?php
-require_once 'connect_database.php';
+require_once 'f0_connect_database.php';
 
 $email = $_POST['email'];
 $password = $_POST['password'];
@@ -20,7 +20,7 @@ try {
     $stmt = $pdo->prepare("INSERT INTO user VALUES(NULL, ?, ?, ?, ?, ?, ?)");
     $stmt->execute([$email, $password, $name, $zip_code, $address, $apartment_name]);
 } catch (PDOException $e) {
-    header('Location: ../screen/signup.php');
+    header('Location: ../view/g2_signup.php');
 }
 
-header('Location: ../screen/login.php');
+header('Location: ../view/g1_login.php');

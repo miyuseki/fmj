@@ -38,9 +38,9 @@ if (isset($_GET['logout'])) {
             <nav class="sidebar">
                 <h3>管理メニュー</h3>
                 <ul>
-                    <li><a href="manage_users.php">ユーザー管理</a></li>
-                    <li><a href="manage_products.php">商品管理</a></li>
-                    <li><a href="admin_register.php">管理者登録</a></li>
+                    <li><a href="g3_user_list_view.php">ユーザー管理</a></li>
+                    <li><a href="g4_item_list_view.php">商品管理</a></li>
+                    <li><a href="g5_item_update_view.php">管理者登録</a></li>
                     <li><a href="?logout">ログアウト</a></li>
                 </ul>
             </nav>

@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if ($user) {
             $_SESSION['user'] = $user['user_id'];
-            header('Location: home.php');
+            header('Location: g3_home.php');
             exit();
         } else {
             $error_message = 'ログインに失敗しました。メールアドレスまたはパスワードが間違っています。';

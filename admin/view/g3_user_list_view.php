@@ -26,7 +26,7 @@ if (isset($_POST['delete_id'])) {
     $delete_id = (int)$_POST['delete_id'];
     $deleteStmt = $pdo->prepare("DELETE FROM admins WHERE id = ?");
     $deleteStmt->execute([$delete_id]);
-    header("Location: admin_list.php"); 
+    header("Location: g3_user_list_view.php"); 
     exit();
 }
 
@@ -62,10 +62,10 @@ $admins = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <nav class="sidebar">
                 <h3>管理メニュー</h3>
                 <ul>
-                    <li><a href="manage_users.php">ユーザー管理</a></li>
-                    <li><a href="manage_products.php">商品管理</a></li>
-                    <li><a href="admin_register.php">管理者登録</a></li>
-                    <li><a href="admin_login.php?logout">ログアウト</a></li>
+                    <li><a href="g2_sign_up_view.php">ユーザー管理</a></li>
+                    <li><a href="g3_user_list_view.php">商品管理</a></li>
+                    <li><a href="g4_item_list_view.php">管理者登録</a></li>
+                    <li><a href="g1_login_view.php">ログアウト</a></li>
                 </ul>
             </nav>
 

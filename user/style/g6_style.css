@@ -123,3 +123,13 @@ footer {
 hr {
     width: 100vw;
 }
+
+form {
+    display: inline;
+}
+
+.wish-button {
+    border: none;
+    background-color: white;
+    font-size: 2.5vw;
+}

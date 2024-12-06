@@ -6,7 +6,7 @@ require_once '../server/parse_string_to_array.php';
 
 // ログイン確認
 if (!isset($_SESSION['user'])) {
-    header("Location: login.php");
+    header("Location: g1_login.php");
     exit();
 }
 
@@ -40,6 +40,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
     <link rel="stylesheet" href="../style/g4_style.css"> 
 
     <title>マイページ画面</title>

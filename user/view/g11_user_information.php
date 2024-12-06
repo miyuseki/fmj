@@ -1,29 +1,87 @@
 <?php
 session_start();
 require_once '../server/f0_connect_database.php';
+require_once '../server/parse_string_to_array.php';
+
+
+// ログイン確認
+if (!isset($_SESSION['user'])) {
+    header("Location: g1_login.php");
+    exit();
+}
 
 $user_id = $_SESSION['user'];
+$message = '';
 
 try {
     $pdo = connect_database();
 
-    // POSTデータから商品IDリストを取得
-    $merchandise_ids = $_POST['merchandise_ids'] ?? [];
-    if (empty($merchandise_ids)) {
-        echo '商品が選択されていません。';
-        exit;
+    // パスワード変更処理
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['now_password'], $_POST['new_password'], $_POST['new_password_check'])) {
+        $now_password = $_POST['now_password'];
+        $new_password = $_POST['new_password'];
+        $new_password_check = $_POST['new_password_check'];
+
+        if ($now_password === $user['pass']) {
+            if ($new_password === $new_password_check) {
+                $stmt = $pdo->prepare("UPDATE user SET pass = ? WHERE user_id = ?");
+                $stmt->execute([$new_password, $user_id]);
+                $message = "パスワードが更新されました。";
+            } else {
+                $message = "新しいパスワードが一致しません。";
+            }
+        } else {
+            $message = "現パスワードが正しくありません。";
+        }
     }
 
-    // 商品情報取得
-    $placeholders = rtrim(str_repeat('?,', count($merchandise_ids)), ',');
-    $sql = "SELECT * FROM merchandise WHERE merchandise_id IN ($placeholders)";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute($merchandise_ids);
-    $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // メールアドレス変更処理
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mail_address'])) {
+        $mail_address = $_POST['mail_address'];
+        $stmt = $pdo->prepare("UPDATE user SET mail_address = ? WHERE user_id = ?");
+        $stmt->execute([$mail_address, $user_id]);
+        $message = "メールアドレスが更新されました。";
+    }
+
+    // 住所情報変更処理
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['last_kanji'], $_POST['first_kanji'], $_POST['zip_code'], $_POST['prefectures'], $_POST['street_address'], $_POST['mansion'])) {
+
+        $last_kanji = htmlspecialchars($_POST['last_kanji'], ENT_QUOTES, 'UTF-8');
+        $first_kanji = htmlspecialchars($_POST['first_kanji'], ENT_QUOTES, 'UTF-8');
+        $zip_code = htmlspecialchars($_POST['zip_code'], ENT_QUOTES, 'UTF-8');
+        $prefectures = htmlspecialchars($_POST['prefectures'], ENT_QUOTES, 'UTF-8');
+        $street_address = htmlspecialchars($_POST['street_address'], ENT_QUOTES, 'UTF-8');
+        $mansion = htmlspecialchars($_POST['mansion'], ENT_QUOTES, 'UTF-8');
+
+        $last_kana = isset($_POST['last_kana']) ? htmlspecialchars($_POST['last_kana'], ENT_QUOTES, 'UTF-8') : '';
+        $first_kana = isset($_POST['first_kana']) ? htmlspecialchars($_POST['first_kana'], ENT_QUOTES, 'UTF-8') : '';
+
+        // 名前情報を生成
+        $name = 'last_kanji/' . $last_kanji . '/first_kanji/' . $first_kanji .
+            '/last_kana/' . $last_kana . '/first_kana/' . $first_kana;
+
+        // 住所情報を生成
+        $address = 'prefectures/' . $prefectures .
+            '/street_address/' . $street_address .
+            '/mansion/' . $mansion;
+
+        $stmt = $pdo->prepare("UPDATE user SET name = ?, address = ?, zip_code = ?, mansion = ? WHERE user_id = ?");
+        $stmt->execute([$name, $address, $_POST['zip_code'], $_POST['mansion'], $user_id]);
+        $message = "住所情報が更新されました。";
+    }
 } catch (PDOException $e) {
-    echo 'データベースエラー: ' . htmlspecialchars($e->getMessage());
-    exit;
+    echo "データベース接続エラー: " . $e->getMessage();
+    exit();
 }
+
+// ユーザーデータを取得
+$stmt = $pdo->prepare("SELECT * FROM user WHERE user_id = ?");
+$stmt->execute([$user_id]);
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// ／区切りで保存したデータを分割して連想配列に保存
+$name = parseStringToArray($user['name']);
+$address = parseStringToArray($user['address']);
 ?>
 <!DOCTYPE html>
 <html lang="jp">
@@ -34,7 +92,7 @@ try {
 
     <body>
         <header>
-            <a href="g4_my_page.php">戻る</a>
+            <a href="g4_mypage.php">戻る</a>
             <a href="../server/logout.php">ログアウト</a>
         </header>
         <h1>FMJ</h1>

@@ -12,6 +12,24 @@ try {
 $sql = null;
 $params = [];
 
+// ウィッシュリストへの追加処理
+if (isset($_POST['merchandise_id']) && isset($_SESSION['user'])) {
+    $merchandise_id = $_POST['merchandise_id'];
+    $user_id = $_SESSION['user'];
+
+    // すでにウィッシュリストに追加されているかチェック
+    $sql = $pdo->prepare('SELECT * FROM wishlist WHERE user_id = ? AND merchandise_id = ?');
+    $sql->execute([$user_id, $merchandise_id]);
+    $wishlist = $sql->fetch(PDO::FETCH_ASSOC);
+
+    // ウィッシュリストにない場合、追加する
+    if (!$wishlist) {
+        $sql = $pdo->prepare('INSERT INTO wishlist (user_id, merchandise_id) VALUES (?, ?)');
+        $sql->execute([$user_id, $merchandise_id]);
+    }
+}
+
+// 検索処理
 if (isset($_GET['search']) && !empty($_GET['search'])) {
     $sql = $pdo->prepare('SELECT * FROM merchandise WHERE merchandise_name LIKE ?');
     $params[] = '%' . $_GET['search'] . '%';
@@ -38,13 +56,13 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
     </header>
     <hr>
     <main>
-
         <form action="g6_search_result.php" method="get">
             <div class="container">
                 <h2>検索</h2>
                 <input type="search" name="search" placeholder="例　いちご">
             </div>
         </form>
+
         <h1>検索結果</h1>
         <fieldset>
             <?php
@@ -56,31 +74,45 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
                     echo '<h1>検索結果なし</h1>';
                 } else {
                     echo '<div class="product-container">';
-                    foreach ($results as $row):
-            ?>
-                <div class="product-item">
+                    foreach ($results as $row): ?>
+                        <?php
+                        $exist = false;
+                        if (isset($_SESSION['user'])) {
+                            $sql = $pdo->prepare('SELECT * FROM wishlist WHERE user_id = ? AND merchandise_id = ?');
+                            $sql->execute([$_SESSION['user'], $row['merchandise_id']]);
+                            $exist = $sql->fetch(PDO::FETCH_ASSOC);
+                        }
 
-                        <!-- <form action="g7_product_introduction.php" method="get">
-                        <input type="hidden" name="merchandise_id" value="<?= htmlspecialchars($row['merchandise_id']) ?>">
-                        <img src="<?= htmlspecialchars($row['image']) ?>" alt="商品画像">
-                        <p>商品名: <?= htmlspecialchars($row['merchandise_name']) ?></p>
-                        <p>価格: <?= htmlspecialchars($row['price']) ?>円</p> -->
+                        ?>
 
-                        <input type="submit" value="購入">
-                    </form>
-                </div>
+                        <div class="product-item">
+                            <form action="g7_product_introduction.php" method="get">
+                                <input type="hidden" name="merchandise_id" value="<?= htmlspecialchars($row['merchandise_id']) ?>">
+                                <img src="<?= htmlspecialchars($row['image']) ?>" alt="商品画像">
+                                <p>商品名: <?= htmlspecialchars($row['merchandise_name']) ?></p>
+                                <p>価格: <?= htmlspecialchars($row['price']) ?>円</p>
+                                <input type="submit" value="購入">
+                            </form>
+                            <form action="#" method="post">
+                                <?php if (isset($_SESSION['user']) && $exist): ?>
+                                    <button class="wish-button" type="submit" name="merchandise_id" value="<?= htmlspecialchars($row['merchandise_id']) ?>">♥</button>
+                                <?php elseif (isset($_SESSION['user'])): ?>
+                                    <button class="wish-button" type="submit" name="merchandise_id" value="<?= htmlspecialchars($row['merchandise_id']) ?>">♡</button>
+                                <?php else: ?>
+                                    <button class="wish-button" type="button" disabled>♡</button>
+                                <?php endif; ?>
+                            </form>
+                        </div>
             <?php
                     endforeach;
                     echo '</div>';
                 }
             }
             ?>
-
         </fieldset>
     </main>
 
     <footer></footer>
-
 </body>
 
 </html>

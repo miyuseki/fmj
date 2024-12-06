@@ -2,6 +2,12 @@
 session_start();
 require_once '../server/f0_connect_database.php';
 
+// ログイン確認
+if (!isset($_SESSION['user'])) {
+    header("Location: g1_login.php");
+    exit();
+}
+
 $user_id = $_SESSION['user'];
 
 try {
@@ -30,6 +36,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../style/g10_style.css">
 
     <title>購入確認</title>
