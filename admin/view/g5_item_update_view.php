@@ -39,13 +39,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $price = $_POST['price'];
 
-    $description = $_POST['description'];
+    $stock = $_POST['stock'];
+
+    $explanation = $_POST['explanation'];
 
     try {
 
         $pdo = new PDO($dsn, $username, $password);
 
-        $stmt = $pdo->prepare("UPDATE merchandise SET merchandise_name = :name, price = :price, description = :description WHERE merchandise_id = :id");
+        $stmt = $pdo->prepare("UPDATE merchandise SET merchandise_name = :name, price = :price, explanation = :explanation, stock = :stock WHERE merchandise_id = :id");
 
         $stmt->execute([
 
@@ -55,7 +57,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             ':price' => $price,
 
-            ':description' => $description,
+            ':stock' => $stock,
+
+            ':explanation' => $explanation,
 
         ]);
 
@@ -97,15 +101,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <form method="POST" enctype="multipart/form-data" class="form">
                <div class="form-group">
                   <label for="name">商品名:</label>
-                  <input type="text" id="name" name="name" required　value="<?= htmlspecialchars($merchandise['merchandise_name']) ?>">
+                  <input type="text" id="name" name="name" required value="<?= htmlspecialchars($merchandise['merchandise_name']) ?>">
                </div>
                <div class="form-group">
                   <label for="price">価格:</label>
                   <input type="number" id="price" name="price" required value="<?= htmlspecialchars($merchandise['price']) ?>">
                </div>
                <div class="form-group">
-                  <label for="description">説明:</label>
-                  <textarea id="description" name="description" required value="<?= htmlspecialchars($merchandise['explanation']) ?>"></textarea>
+                  <label for="explanation">説明:</label>
+                  <textarea id="explanation" name="explanation" required value="<?= htmlspecialchars($merchandise['explanation']) ?>"></textarea>
                </div>
                <div class="form-group">
                   <label for="category">カテゴリー:</label>
@@ -118,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                </div>
                <div class="form-group">
                   <label for="stock">在庫:</label>
-                  <input type="number" id="stock" name="stock" required value="<?= htmlspecialchars($merchandise['stook']) ?>">
+                  <input type="number" id="stock" name="stock" required value="<?= htmlspecialchars($merchandise['stock']) ?>">
                </div>
                <div class="form-group">
                   <label for="image">:画像</label>
